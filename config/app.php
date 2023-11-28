@@ -87,6 +87,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Default Configurations
+    |--------------------------------------------------------------------------
+    |
+    | The application default determines the defaults that will be used
+    | by the application. You are free to set this value
+    | to any of the defaults which will be supported by the application.
+    |
+    */
+
+    'defaults' => ['format' => 'json'],
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Fallback Locale
     |--------------------------------------------------------------------------
     |
