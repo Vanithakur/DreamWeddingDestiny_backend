@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Home Page')
+@section('title', 'Dashboard Page')
 
 @section('header')
     @include('inludes.header')
@@ -485,7 +485,7 @@
                         </h4>
                         <div class="info_links_menu">
                             <a href="index.html">
-                                Home
+                                Dashboard
                             </a>
                             <a href="about.html">
                                 About
