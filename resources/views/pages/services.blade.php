@@ -2,7 +2,7 @@
 @section('title', 'Services Page')
 
 @section('header')
-    @include('inludes.header')
+    @include('includes.header')
 @endsection
 @section('content')
     <!-- chocolate section -->
@@ -121,8 +121,8 @@
     <!-- end chocolate section -->
 @endsection
 @section('footer-info-section')
-    @include('inludes.footer-info-section')
+    @include('includes.footer-info-section')
 @endsection
 @section('footer')
-    @include('inludes.footer')
+    @include('includes.footer')
 @endsection

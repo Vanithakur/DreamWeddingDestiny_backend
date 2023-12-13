@@ -2,7 +2,7 @@
 @section('title', 'Contact Page')
 
 @section('header')
-    @include('inludes.header')
+    @include('includes.header')
 @endsection
 @section('content')
     <!-- contact section -->
@@ -50,8 +50,8 @@
     <!-- end contact section -->
 @endsection
 @section('footer-info-section')
-    @include('inludes.footer-info-section')
+    @include('includes.footer-info-section')
 @endsection
 @section('footer')
-    @include('inludes.footer')
+    @include('includes.footer')
 @endsection
