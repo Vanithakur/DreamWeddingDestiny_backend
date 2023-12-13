@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StripePaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,3 +36,8 @@ Route::get('/reviews', [HomeController::class,'reviews'])->name('reviews');
 Route::get('/contact', [HomeController::class,'contact'])->name('contact');
 
 require __DIR__.'/auth.php';
+
+Route::controller(StripePaymentController::class)->group(function(){
+    Route::get('stripe', 'stripe');
+    Route::post('stripe', 'stripePost')->name('stripe.post');
+});
