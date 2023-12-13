@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Dashboard Page')
+@section('title', 'Home Page')
 
 @section('header')
     @include('inludes.header')

@@ -52,9 +52,8 @@
                                 <div class="form-group col">
                                     <label for="role_type">Select Role:</label>
                                     <select id="role_type" name="role_type">
-                                        <option value="1">Student</option>
-                                        <option value="2">Teacher</option>
-                                        <option value="3">Employee</option>
+                                        <option value="1">Normal</option>
+                                        <option value="2">Business</option>
                                         <option value="0">Other Role</option>
                                     </select>
                                 </div>

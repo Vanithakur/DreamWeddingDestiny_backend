@@ -1,5 +1,5 @@
 @extends('layouts.guest')
-@section('title', 'Register Page')
+@section('title', 'Login Page')
 @section('header')
     @include('inludes.header')
 @endsection
