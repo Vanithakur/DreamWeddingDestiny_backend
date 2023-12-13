@@ -5,6 +5,7 @@
 @endsection
 @section('content')
     <section class="contact_section ">
+
         <div class="container-fluid">
 
             <div class="row">
