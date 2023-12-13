@@ -44,7 +44,7 @@
                                         placeholder="Your password" />
                                 </div>
                                 <div class="form-group col">
-                                    <input type="password" name="c_password" class="form-control"
+                                    <input type="password" name="password_confirmation" class="form-control"
                                         placeholder="Your confirm password" />
                                 </div>
                             </div>
