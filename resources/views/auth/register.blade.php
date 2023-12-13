@@ -50,20 +50,20 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col">
-                                    <label for="role">Select Role:</label>
-                                    <select id="role" name="role">
-                                        <option value="student">Student</option>
-                                        <option value="teacher">Teacher</option>
-                                        <option value="employee">Employee</option>
-                                        <option value="other_role">Other Role</option>
+                                    <label for="role_type">Select Role:</label>
+                                    <select id="role_type" name="role_type">
+                                        <option value="1">Student</option>
+                                        <option value="2">Teacher</option>
+                                        <option value="3">Employee</option>
+                                        <option value="0">Other Role</option>
                                     </select>
                                 </div>
                                 <div class="form-group col">
                                     <label for="gender">Select Gender:</label>
                                     <select id="gender" name="gender">
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="other">Other</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="O">Other</option>
                                     </select>
                                 </div>
                             </div>
