@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 @section('title', 'Register Page')
 @section('header')
-    @include('inludes.header')
+    @include('includes.header')
 @endsection
 @section('content')
     <section class="contact_section ">
@@ -81,5 +81,5 @@
     </form>
 @endsection
 @section('footer')
-    @include('inludes.footer')
+    @include('includes.footer')
 @endsection
