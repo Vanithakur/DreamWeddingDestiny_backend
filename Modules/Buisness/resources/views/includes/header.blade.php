@@ -68,15 +68,12 @@
                                 <a class="nav-link" href="contact.html">Contact Us</a>
                             </li>
                             <li class="nav-item">
-                                <form action="{{ route('logout') }}" method="post">
-                                    @csrf
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="{{ route('admin.index') }}">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <button type="submit">
-                                            Logout
+                                            Admin Dashboard
                                         </button>
                                     </a>
-                                </form>
                             </li>
                             <form class="form-inline justify-content-center">
                                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
