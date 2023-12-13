@@ -252,7 +252,7 @@
                 </div>
                 <div class="col-md-6 px-0">
                     <div class="img-box ">
-                        <img src="images/about-img.jpg" class="box_img" alt="about img">
+                        <img src="{{ asset('modules/business/images/about-img.jpg') }}" class="box_img" alt="about img">
                     </div>
                 </div>
             </div>
@@ -334,7 +334,7 @@
             <div class="row">
                 <div class="col-md-6 px-0">
                     <div class="img-box ">
-                        <img src="images/contact-img.jpg" class="box_img" alt="about img">
+                        <img src="{{ asset('modules/business/images/contact-img.jpg') }}" class="box_img" alt="about img">
                     </div>
                 </div>
                 <div class="col-md-5 mx-auto">
