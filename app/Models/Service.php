@@ -18,9 +18,4 @@ class Service extends Model
     protected $fillable = [
         'name'
     ];
-
-    public function service()
-    {
-        return $this->hasMany(BusinessSetup::class, 'user_id', 'id');
-    }
 }
