@@ -1,4 +1,7 @@
 {
     "Buisness": true,
-    "Admin": true
+
+    "Admin": true,
+
+    "User": true
 }
