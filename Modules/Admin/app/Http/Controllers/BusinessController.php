@@ -10,6 +10,7 @@ use Modules\Admin\app\Models\BusinessSetup;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Service;
 use DataTables;
+
 class BusinessController extends Controller
 {
     /**
@@ -19,13 +20,17 @@ class BusinessController extends Controller
     {
         $user = Auth::user();
         if ($request->ajax()) {
-            $data = BusinessSetup::where('user_id', $user->id)->select('*')->get();
+            $data = Service::join('business_setups', 'services.id', '=', 'business_setups.service_id')
+                ->where('business_setups.user_id', $user->id)
+                ->get();
             return DataTables::of($data)
-                   ->addColumn('action', function ($row) {
+                ->addColumn('service_name', function ($row) {
+                    return $row->name;
+                })->addColumn('action', function ($row) {
                     return '<a href="' . route('business.edit', $row->id) . '"><button class="btn btn-primary">Edit</button></a>';
                 })
-                    ->rawColumns(['action'])
-                    ->make(true);
+                ->rawColumns(['action'])
+                ->make(true);
         }
         return view('admin::business_setup.list');
     }
@@ -36,7 +41,7 @@ class BusinessController extends Controller
     public function create()
     {
         $services = Service::select('*')->get();
-        return view('admin::business_setup.setup-form',['services' => $services]);
+        return view('admin::business_setup.setup-form', ['services' => $services]);
     }
 
     /**
@@ -80,7 +85,7 @@ class BusinessController extends Controller
     {
         $businessDetails = BusinessSetup::find($id);
         $services = Service::select('*')->get();
-        return view('admin::business_setup.setup-edit-form', ['businessDetails'=>$businessDetails, 'services' => $services]);
+        return view('admin::business_setup.setup-edit-form', ['businessDetails' => $businessDetails, 'services' => $services]);
     }
 
     /**
@@ -91,7 +96,7 @@ class BusinessController extends Controller
         $request->validate([
             'name' => 'required|min:2',
             'service' => 'required',
-            'email' => 'required|email|unique:business_setups,email,'.$id,
+            'email' => 'required|email|unique:business_setups,email,' . $id,
             'mob_number' => 'required|numeric|digits:10',
             'address' => 'required|string'
         ]);
