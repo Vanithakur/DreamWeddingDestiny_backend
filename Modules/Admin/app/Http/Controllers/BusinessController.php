@@ -7,7 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Admin\app\Models\BusinessSetup;
-
+use Illuminate\Support\Facades\Auth;
 class BusinessController extends Controller
 {
     /**
@@ -39,10 +39,12 @@ class BusinessController extends Controller
             'address' => 'required|string'
         ]);
 
+        $user = Auth::user();
         $newBusiness = new BusinessSetup();
         $newBusiness->name = $request->input('name');
+        $newBusiness->user_id = $user->id;
         $newBusiness->email = $request->input('email');
-        $newBusiness->service = $request->input('service');
+        $newBusiness->service_id = $request->input('service');
         $newBusiness->mob_number = $request->input('mob_number');
         $newBusiness->address = $request->input('address');
         $newBusiness->save();

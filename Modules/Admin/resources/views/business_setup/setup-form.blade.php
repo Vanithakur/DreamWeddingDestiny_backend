@@ -43,7 +43,10 @@
                                         <label for="service">Service</label>
                                         <select name="service" id="service"
                                             class="form-control @error('service') is-invalid @enderror">
-                                            <option value=""></option>
+                                            <option value="">Select Service</option>
+                                            <option value="1">Food</option>
+                                            <option value="2">Decoration</option>
+                                            <option value="3">Photography</option>
                                         </select>
                                         @error('service')
                                             <div class="invalid-feedback">{{ $message }}</div>
