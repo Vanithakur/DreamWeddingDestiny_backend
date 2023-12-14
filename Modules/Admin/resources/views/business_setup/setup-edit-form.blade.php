@@ -21,19 +21,20 @@
                         <!-- jquery validation -->
                         <div class="card card-primary mt-3">
                             <div class="card-header">
-                                <h3 class="card-title">Business Setup Form</h3>
+                                <h3 class="card-title">Business Setup Update Form</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="ticketForm" action="{{ route('business.store') }}" method="post"
+                            <form id="ticketForm" action="{{ route('business.update', $businessDetails->id) }}" method="post"
                                 enctype="multipart/form-data">
+                                @method('PUT')
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Business Name</label>
                                         <input type="text" name="name"
                                             class="form-control @error('name') is-invalid @enderror" id="name"
-                                            value="{{ old('name') }}" placeholder="Enter Business Name">
+                                            value="{{ $businessDetails->name }}" placeholder="Enter Business Name">
                                         @error('name')
                                             <div class="invalid-feedback"></div>
                                         @enderror
@@ -42,10 +43,10 @@
                                         <label for="service">Service</label>
                                         <select name="service" id="service"
                                             class="form-control @error('service') is-invalid @enderror">
-                                            <option value="" {{ old('service') == 9999 ? 'selected' : '' }}>Select Service</option>
-                                            <option value="1" {{ old('service') == 1 ? 'selected' : '' }}>Food</option>
-                                            <option value="2" {{ old('service') == 2 ? 'selected' : '' }}>Decoration</option>
-                                            <option value="3" {{ old('service') == 3 ? 'selected' : '' }}>Photography</option>
+                                            <option value="">Select Service</option>
+                                            <option value="1">Food</option>
+                                            <option value="2">Decoration</option>
+                                            <option value="3">Photography</option>
                                         </select>
                                         @error('service')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -55,7 +56,7 @@
                                         <label for="email">Contact Email</label>
                                         <input type="email" name="email"
                                             class="form-control @error('email') is-invalid @enderror" id="email"
-                                            value="{{ old('email') }}" placeholder="Enter Business Contact email">
+                                            value="{{ $businessDetails->email }}" placeholder="Enter Business Contact email">
                                         @error('email')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -64,7 +65,7 @@
                                         <label for="mob_number">Contact Number</label>
                                         <input type="text" name="mob_number"
                                             class="form-control @error('mob_number') is-invalid @enderror" id="mob_number"
-                                            value="{{ old('mob_number') }}" placeholder="Enter Business Contact Number">
+                                            value="{{ $businessDetails->mob_number }}" placeholder="Enter Business Contact Number">
                                         @error('mob_number')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -73,7 +74,7 @@
                                         <label for="address">Address</label>
                                         <input type="text" name="address"
                                             class="form-control @error('address') is-invalid @enderror" id="address"
-                                            value="{{ old('address') }}" placeholder="Enter Business Address">
+                                            value="{{ $businessDetails->address }}" placeholder="Enter Business Address">
                                         @error('address')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
