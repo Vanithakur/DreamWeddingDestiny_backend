@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @include('includes.cssLinks')
     @stack('styles')
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -26,11 +27,13 @@
     <title>@yield('title')</title>
 </head>
 
-<body>
+<body class="hold-transition sidebar-mini layout-fixed">
+        @include('includes.navbar')
     <div class="main_body_content">
         <div class="hero_area">
             @yield('header')
             @yield('content')
+            @include('includes.sidebar')
             @yield('footer-info-section')
             @yield('footer')
         </div>
