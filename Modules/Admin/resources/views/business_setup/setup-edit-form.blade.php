@@ -34,9 +34,9 @@
                                         <label for="name">Business Name</label>
                                         <input type="text" name="name"
                                             class="form-control @error('name') is-invalid @enderror" id="name"
-                                            value="{{ $businessDetails->name }}" placeholder="Enter Business Name">
+                                            value="{{ old('name', $businessDetails->name) }}" placeholder="Enter Business Name">
                                         @error('name')
-                                            <div class="invalid-feedback"></div>
+                                            <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -45,8 +45,7 @@
                                             class="form-control @error('service') is-invalid @enderror">
                                             <option value="">Select Service</option>
                                             @foreach ($services as $service)
-                                                <option value="1" {{ $businessDetails->service_id == $service->id ? 'selected' : '' }}>{{ $service->name }}
-                                                </option>
+                                                <option value="{{ $service->id }}" {{ old('service', $businessDetails->service_id) == $service->id ? 'selected' : '' }}>{{ $service->name }}</option>
                                             @endforeach
                                         </select>
                                         @error('service')
@@ -57,7 +56,7 @@
                                         <label for="email">Contact Email</label>
                                         <input type="email" name="email"
                                             class="form-control @error('email') is-invalid @enderror" id="email"
-                                            value="{{ $businessDetails->email }}" placeholder="Enter Business Contact email">
+                                            value="{{ old('email', $businessDetails->email) }}" placeholder="Enter Business Contact email">
                                         @error('email')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -66,7 +65,7 @@
                                         <label for="mob_number">Contact Number</label>
                                         <input type="text" name="mob_number"
                                             class="form-control @error('mob_number') is-invalid @enderror" id="mob_number"
-                                            value="{{ $businessDetails->mob_number }}" placeholder="Enter Business Contact Number">
+                                            value="{{ old('mob_number', $businessDetails->mob_number) }}" placeholder="Enter Business Contact Number">
                                         @error('mob_number')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -75,7 +74,7 @@
                                         <label for="address">Address</label>
                                         <input type="text" name="address"
                                             class="form-control @error('address') is-invalid @enderror" id="address"
-                                            value="{{ $businessDetails->address }}" placeholder="Enter Business Address">
+                                            value="{{ old('address', $businessDetails->address) }}" placeholder="Enter Business Address">
                                         @error('address')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
