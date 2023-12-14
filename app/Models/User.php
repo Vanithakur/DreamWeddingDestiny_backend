@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Modules\Admin\App\Models\BusinessSetup;
+use Modules\Admin\app\Models\BusinessSetup;
 
 class User extends Authenticatable
 {
@@ -51,6 +51,6 @@ class User extends Authenticatable
 
     public function business()
     {
-        return $this->hasMany(BusinessSetup::class);
+        return $this->hasMany(BusinessSetup::class, 'user_id', 'id');
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Modules\Admin\app\Models\BusinessSetup;
 use Illuminate\Http\Response;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -71,7 +72,13 @@ class UserController extends Controller
      */
     public function providers($id)
     {
-        $data = BusinessSetup::with('provider')->where('service_id', $id)->get();
+        $data = User::with('businessSetup.service')
+            ->join('business_setups', 'users.id', '=', 'business_setups.user_id')
+            ->join('services', 'services.id', '=', 'business_setups.service_id')
+            ->where('services.id', '=', $id)
+            ->get();
+
+
         return view('user::services.providers', ['data' => $data]);
     }
 }
