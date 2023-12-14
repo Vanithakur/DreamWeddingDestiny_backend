@@ -35,7 +35,7 @@
                                             class="form-control @error('name') is-invalid @enderror" id="name"
                                             value="{{ old('name') }}" placeholder="Enter Business Name">
                                         @error('name')
-                                            <div class="invalid-feedback"></div>
+                                            <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -44,7 +44,7 @@
                                             class="form-control @error('service') is-invalid @enderror">
                                             <option value="">Select Service</option>
                                             @foreach ($services as $service)
-                                                <option value="1" {{ old('service') == $service->id ? 'selected' : '' }}>{{ $service->name }}
+                                                <option value="{{ $service->id }}" {{ old('service') == $service->id ? 'selected' : '' }}>{{ $service->name }}
                                                 </option>
                                             @endforeach
                                         </select>
