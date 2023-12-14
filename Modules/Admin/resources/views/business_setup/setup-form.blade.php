@@ -42,10 +42,11 @@
                                         <label for="service">Service</label>
                                         <select name="service" id="service"
                                             class="form-control @error('service') is-invalid @enderror">
-                                            <option value="" {{ old('service') == 9999 ? 'selected' : '' }}>Select Service</option>
-                                            <option value="1" {{ old('service') == 1 ? 'selected' : '' }}>Food</option>
-                                            <option value="2" {{ old('service') == 2 ? 'selected' : '' }}>Decoration</option>
-                                            <option value="3" {{ old('service') == 3 ? 'selected' : '' }}>Photography</option>
+                                            <option value="">Select Service</option>
+                                            @foreach ($services as $service)
+                                                <option value="1" {{ old('service') == $service->id ? 'selected' : '' }}>{{ $service->name }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                         @error('service')
                                             <div class="invalid-feedback">{{ $message }}</div>

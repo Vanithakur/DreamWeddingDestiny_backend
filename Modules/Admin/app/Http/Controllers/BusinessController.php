@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Admin\app\Models\BusinessSetup;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Service;
 use DataTables;
 class BusinessController extends Controller
 {
@@ -34,7 +35,8 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        return view('admin::business_setup.setup-form');
+        $services = Service::select('*')->get();
+        return view('admin::business_setup.setup-form',['services' => $services]);
     }
 
     /**
@@ -76,9 +78,9 @@ class BusinessController extends Controller
      */
     public function edit($id)
     {
-        // $businessDetails = BusinessSetup::select('*')->where('id', $id)->get();
         $businessDetails = BusinessSetup::find($id);
-        return view('admin::business_setup.setup-edit-form', ['businessDetails'=>$businessDetails]);
+        $services = Service::select('*')->get();
+        return view('admin::business_setup.setup-edit-form', ['businessDetails'=>$businessDetails, 'services' => $services]);
     }
 
     /**
