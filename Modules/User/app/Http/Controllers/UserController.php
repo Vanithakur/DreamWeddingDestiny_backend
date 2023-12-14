@@ -5,6 +5,7 @@ namespace Modules\User\app\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Modules\Admin\app\Models\BusinessSetup;
 use Illuminate\Http\Response;
 
 class UserController extends Controller
@@ -63,5 +64,14 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function providers($id)
+    {
+        $data = BusinessSetup::with('provider')->where('service_id', $id)->get();
+        return view('user::services.providers', ['data' => $data]);
     }
 }
