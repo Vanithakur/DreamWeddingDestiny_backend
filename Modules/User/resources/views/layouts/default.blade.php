@@ -13,7 +13,7 @@
 
     <main>
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background-image: url('{{ asset('modules/user/dist/img/user-dashboard.jpg') }}'); background-size: cover; background-position: center;">
         @yield('content')
         </div>
    </main>

@@ -6,7 +6,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  href="{{ route('admin.index') }}" role="button">Dashboard</i></a>
+        <a class="nav-link"  href="" role="button">Dashboard</i></a>
       </li>
     </ul>
 

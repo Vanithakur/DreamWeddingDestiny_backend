@@ -31,26 +31,15 @@
           </p>
           </a>
 
-
           <ul class="nav nav-treeview">
+            @foreach ($servicesInfo as $service)
             <li class="nav-item">
-              <a href="{{ route('providers', 1)}}" class="nav-link ">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Food</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ route('providers', 2)}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Decoration</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ route('providers', 3)}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Photograph</p>
-              </a>
-            </li>
+                <a href="{{ route('providers', $service->id)}}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>{{ $service->name }}</p>
+                </a>
+              </li>
+            @endforeach
           </ul>
 
           </li>
