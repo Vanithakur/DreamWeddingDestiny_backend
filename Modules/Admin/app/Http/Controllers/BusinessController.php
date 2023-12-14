@@ -19,13 +19,14 @@ class BusinessController extends Controller
     public function index(Request $request)
     {
         $user = Auth::user();
+
         if ($request->ajax()) {
             $data = Service::join('business_setups', 'services.id', '=', 'business_setups.service_id')
-                ->where('business_setups.user_id', $user->id)
+                ->where('business_setups.user_id', $user->id)->select('*', 'services.name as s_name')
                 ->get();
             return DataTables::of($data)
                 ->addColumn('service_name', function ($row) {
-                    return $row->name;
+                    return $row->s_name;
                 })->addColumn('action', function ($row) {
                     return '<a href="' . route('business.edit', $row->id) . '"><button class="btn btn-primary">Edit</button></a>';
                 })
