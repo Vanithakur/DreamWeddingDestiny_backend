@@ -6,9 +6,8 @@
 @section('title', 'Providers Page')
 
 @section('content')
-
-    @foreach ($data as $provider)
-        <div class="row p-2">
+    <div class="row p-2">
+        @foreach ($data as $provider)
             <div class="col-md-4">
                 <!-- Widget: user widget style 1 -->
                 <div class="card card-widget widget-user shadow">
@@ -53,9 +52,8 @@
                 </div>
                 <!-- /.widget-user -->
             </div>
-        </div>
-    @endforeach
-
+        @endforeach
+    </div>
 @endsection
 
 @push('script')
