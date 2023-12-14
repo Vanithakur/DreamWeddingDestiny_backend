@@ -72,12 +72,10 @@ class UserController extends Controller
      */
     public function providers($id)
     {
-        $data = User::with('businessSetup.service')
+        $data = User::with('business.service')
             ->join('business_setups', 'users.id', '=', 'business_setups.user_id')
-            ->join('services', 'services.id', '=', 'business_setups.service_id')
-            ->where('services.id', '=', $id)
+            ->where('business_setups.service_id', '=', $id)
             ->get();
-
 
         return view('user::services.providers', ['data' => $data]);
     }
