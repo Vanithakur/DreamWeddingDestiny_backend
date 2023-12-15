@@ -29,6 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/index', [ServiceController::class, 'index'])->name('service.index');
+    Route::post('/store', [ServiceController::class, 'store'])->name('service.store');
+    Route::get('/create', [ServiceController::class, 'create'])->name('service.create');
+    Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+    Route::put('/update/{id}', [ServiceController::class, 'update'])->name('service.update');
+    Route::delete('/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
 });
 
 Route::get('/home', [HomeController::class,'home'])->name('home');

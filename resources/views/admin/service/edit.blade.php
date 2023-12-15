@@ -1,4 +1,5 @@
-@extends('layouts.dashboard')
+@extends('admin::layouts.default')
+
 @push('style')
 @endpush
 
@@ -20,21 +21,22 @@
                         <!-- jquery validation -->
                         <div class="card card-primary mt-3">
                             <div class="card-header">
-                                <h3 class="card-title">Create Service</h3>
+                                <h3 class="card-title">Service Update Form</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="ticketForm" action="{{ route('service.store') }}" method="post"
+                            <form id="ticketForm" action="{{ route('service.update', $businessDetails->id) }}" method="post"
                                 enctype="multipart/form-data">
+                                @method('PUT')
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Service Name</label>
                                         <input type="text" name="name"
                                             class="form-control @error('name') is-invalid @enderror" id="name"
-                                            value="{{ old('name') }}" placeholder="Enter service name">
+                                            value="{{ old('name', $businessDetails->name) }}" placeholder="Enter Business Name">
                                         @error('name')
-                                            <div class="invalid-feedback"></div>
+                                            <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
@@ -42,7 +44,7 @@
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Save</button>
                                     <a href="{{ route('service.index') }}"><input type="button" class="btn btn-primary"
-                                            value="Cancel"></input></a>
+                                            value="Cancel"></a>
                                 </div>
                             </form>
                         </div>
@@ -58,7 +60,4 @@
     @endsection
 
     @push('script')
-        <!-- jquery-validation -->
-        <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-        <script src="{{ asset('js/ticket.js') }}"></script>
     @endpush
