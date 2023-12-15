@@ -34,13 +34,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
     Route::put('/update/{id}', [ServiceController::class, 'update'])->name('service.update');
     Route::delete('/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
-
 });
 
-Route::get('/home', [HomeController::class,'home'])->name('home');
-Route::get('/about', [HomeController::class,'about'])->name('about');
-Route::get('/services', [HomeController::class,'services'])->name('services');
-Route::get('/reviews', [HomeController::class,'reviews'])->name('reviews');
-Route::get('/contact', [HomeController::class,'contact'])->name('contact');
+Route::get('/home', [HomeController::class, 'home'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/services', [HomeController::class, 'services'])->name('services');
+Route::get('/reviews', [HomeController::class, 'reviews'])->name('reviews');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

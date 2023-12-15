@@ -32,7 +32,7 @@ class AuthenticatedSessionController extends Controller
         $user = Auth::user();
 
         if ($user->role_type == 2) {
-            return redirect()->route('buisness.index');
+            return redirect()->route('admin.index');
         } else if($user->role_type == 1){
             return redirect()->route('user.index');
         }

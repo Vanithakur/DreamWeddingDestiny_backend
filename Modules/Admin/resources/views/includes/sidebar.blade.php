@@ -75,7 +75,6 @@
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
-        <a href=""><button class="btn btn-primary">Select Plan</button></a>
       </div>
 
       <!-- /.sidebar -->

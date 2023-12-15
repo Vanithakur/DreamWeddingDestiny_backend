@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('title', 'Home Page')
-
+@php $user = auth()->user(); @endphp
 @section('header')
     @include('includes.header')
 @endsection

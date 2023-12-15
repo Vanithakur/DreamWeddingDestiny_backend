@@ -1,4 +1,3 @@
-
 @extends('layouts.dashboard')
 
 @push('style')
@@ -9,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('modules/admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 @endpush
 
-@section('title', 'Business List Page')
+@section('title', 'Service List Page')
 
 
 @section('content')
@@ -29,7 +28,7 @@
 
         @if ($user->role_type == '0')
             <a href="{{ route('service.create') }}"><button class="btn btn-success mt-3 mb-3"> Add Service </button></a>
-
+        @endif
         <div class="card mt-3">
             <div class="card-header ">
 
@@ -87,12 +86,10 @@
                             name: 'action'
                         },
                     ],
-                    columnDefs: [
-                            {
-                                "targets": 1,
-                                "orderable": false
-                            }
-                        ]
+                    columnDefs: [{
+                        "targets": 1,
+                        "orderable": false
+                    }]
                 });
 
                 table.draw();

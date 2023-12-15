@@ -3,7 +3,7 @@
 @push('style')
 @endpush
 
-@section('title', 'Dashboard Page')
+@section('title', 'Admin Dashboard Page')
 
 @section('content')
     <div class="row ">

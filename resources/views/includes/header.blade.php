@@ -33,6 +33,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('register') }}">Register</a>
                     </li>
+                    @if (isset($user) && $user->role_type == 0)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('dashboard') }}">Admin Dashboard</a>
+                    </li>
+                    @endif
                 </ul>
             </div>
         </nav>
