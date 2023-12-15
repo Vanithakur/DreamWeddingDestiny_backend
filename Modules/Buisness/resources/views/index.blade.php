@@ -1,6 +1,6 @@
 @extends('buisness::layouts.default')
 @section('title', 'Buisness Home Page')
-
+@php $user = auth()->user(); @endphp
 @section('header')
     <div class="hero_bg_box">
         <img src="images/hero-bg.jpg" alt="">

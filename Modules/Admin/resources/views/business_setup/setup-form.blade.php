@@ -71,6 +71,15 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label for="business_url">Website Url</label>
+                                        <input type="text" name="business_url"
+                                            class="form-control @error('business_url') is-invalid @enderror" id="business_url"
+                                            value="{{ old('business_url') }}" placeholder="Enter Business Website Url">
+                                        @error('business_url')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
                                         <label for="address">Address</label>
                                         <input type="text" name="address"
                                             class="form-control @error('address') is-invalid @enderror" id="address"
