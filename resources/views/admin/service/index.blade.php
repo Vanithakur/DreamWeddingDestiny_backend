@@ -1,4 +1,6 @@
 
+@extends('layouts.dashboard')
+
 @push('style')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('modules/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -25,23 +27,20 @@
             <div class="alert alert-warning">{{ session('warning') }}</div>
         @endif
 
-        @if ($user->role_type == '2')
-            <a href="{{ route('business.create') }}"><button class="btn btn-success mt-3 mb-3"> Add Business </button></a>
-        @endif
+        @if ($user->role_type == '0')
+            <a href="{{ route('service.create') }}"><button class="btn btn-success mt-3 mb-3"> Add Service </button></a>
 
         <div class="card mt-3">
             <div class="card-header ">
-                <h3 class="card-title ">Business List</h3>
+
+                <h3 class="card-title ">Service List</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <table class="table table-bordered table-striped mt-3" id="example1">
                     <thead>
                         <tr>
-                            <th>Business Name</th>
-                            <th>Contact Number</th>
-                            <th>Contact Email</th>
-                            <th>Address</th>
+                            <th>Name</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -84,25 +83,13 @@
                             name: 'name'
                         },
                         {
-                            data: 'mob_number',
-                            name: 'mob_number'
-                        },
-                        {
-                            data: 'email',
-                            name: 'email'
-                        },
-                        {
-                            data: 'address',
-                            name: 'address'
-                        },
-                        {
                             data: 'action',
                             name: 'action'
                         },
                     ],
                     columnDefs: [
                             {
-                                "targets": 4,
+                                "targets": 1,
                                 "orderable": false
                             }
                         ]
