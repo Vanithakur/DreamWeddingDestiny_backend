@@ -41,7 +41,7 @@
                             <div class="col-sm-4">
                                 <div class="description-block">
                                     <h5 class="description-header">35</h5>
-                                    <a href=""><span class="description-text">Visit Site</span></a>
+                                    <a href="{{ $provider->business_url }}"><span class="description-text">Visit Site</span></a>
                                 </div>
                                 <!-- /.description-block -->
                             </div>

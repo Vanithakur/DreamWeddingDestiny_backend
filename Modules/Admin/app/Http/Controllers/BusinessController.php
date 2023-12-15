@@ -55,6 +55,7 @@ class BusinessController extends Controller
             'service' => 'required',
             'email' => 'required|email|unique:business_setups',
             'mob_number' => 'required|numeric|digits:10',
+            'business_url' => 'required|string',
             'address' => 'required|string'
         ]);
 
@@ -65,6 +66,7 @@ class BusinessController extends Controller
         $newBusiness->email = $request->input('email');
         $newBusiness->service_id = $request->input('service');
         $newBusiness->mob_number = $request->input('mob_number');
+        $newBusiness->business_url = $request->input('business_url');
         $newBusiness->address = $request->input('address');
         $newBusiness->save();
 
@@ -99,6 +101,7 @@ class BusinessController extends Controller
             'service' => 'required',
             'email' => 'required|email|unique:business_setups,email,' . $id,
             'mob_number' => 'required|numeric|digits:10',
+            'business_url' => 'required|string',
             'address' => 'required|string'
         ]);
 
@@ -108,6 +111,8 @@ class BusinessController extends Controller
         $newBusiness->email = $request->input('email');
         $newBusiness->service_id = $request->input('service');
         $newBusiness->mob_number = $request->input('mob_number');
+        $newBusiness->business_url = $request->input('business_url');
+
         $newBusiness->address = $request->input('address');
         $newBusiness->save();
 

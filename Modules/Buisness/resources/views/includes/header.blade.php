@@ -67,14 +67,16 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Contact Us</a>
                             </li>
-                            <li class="nav-item">
+                            @if (isset($user) && $user->role_type == 2)
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('admin.index') }}">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <button type="submit">
                                             Admin Dashboard
                                         </button>
                                     </a>
-                            </li>
+                                </li>
+                            @endif
                             <form class="form-inline justify-content-center">
                                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                                     <i class="fa fa-search" aria-hidden="true"></i>
