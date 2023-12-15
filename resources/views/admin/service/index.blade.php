@@ -40,6 +40,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -82,12 +83,16 @@
                             name: 'name'
                         },
                         {
+                            data: 'image',
+                            name: 'image'
+                        },
+                        {
                             data: 'action',
                             name: 'action'
                         },
                     ],
                     columnDefs: [{
-                        "targets": 1,
+                        "targets": [1,2],
                         "orderable": false
                     }]
                 });

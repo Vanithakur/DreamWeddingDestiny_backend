@@ -16,15 +16,17 @@ class ServiceController extends Controller
         if ($request->ajax()) {
             $data = Service::select('*');
             return DataTables::of($data)
+                ->addColumn('image', function ($row) {
+                    return '<img src="'.$row->image.'" alt="" srcset="" style="width:100px; height:100px;">';
+                })
                 ->addColumn('action', function ($row) {
-                    // return '<a href="' . route('business.edit', $row->id) . '"><button class="btn btn-primary">Edit</button></a><a href="' . route('business.edit', $row->id) . '"><button class="btn btn-primary">Edit</button></a>';
                     return '<div class="row"><a href="' . route('service.edit', $row->id) . '"><button class="btn btn-success btn-sm" style="margin: 0px 5px;">Edit</button></a>' .
                         '<form action="' . route("service.delete", $row->id) . '" method="post">' .
                         csrf_field() .
                         method_field("delete") .
                         '<button class="btn btn-danger btn-sm" type="submit" onclick="return confirm(\'Are you sure you want to delete this client?\')" style="width: 70px;">Delete</button>' .
                         '</form></div>';
-                })->rawColumns(['action'])->make(true);
+                })->rawColumns(['image','action'])->make(true);
         }
         return view('admin.service.index');
     }
@@ -34,8 +36,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        $services = Service::select('*')->get();
-        return view('admin.service.create', ['services' => $services]);
+        return view('admin.service.create');
     }
 
     /**
@@ -45,10 +46,16 @@ class ServiceController extends Controller
     {
         $request->validate([
             'name' => 'required|min:2',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
         ]);
 
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('ServiceImages', 'public');
+            $image = "/storage/{$path}";
+        }
         $service = new Service();
         $service->name = $request->input('name');
+        $service->image = $image;
         $service->save();
 
         return redirect()->route('service.index')->with('success', 'Service create successfully !');
@@ -59,9 +66,8 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        $businessDetails = Service::find($id);
-        $services = Service::select('*')->get();
-        return view('admin.service.edit', ['businessDetails' => $businessDetails, 'services' => $services]);
+        $servicesDetails = Service::find($id);
+        return view('admin.service.edit', ['servicesDetails' => $servicesDetails]);
     }
 
     /**
@@ -70,11 +76,19 @@ class ServiceController extends Controller
     public function update(Request $request, $id): RedirectResponse
     {
         $request->validate([
-            'name' => 'required|min:2'
+            'name' => 'required|min:2',
+            'image' => 'image|mimes:jpeg,png,jpg,gif',
         ]);
 
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('ServiceImages', 'public');
+            $image = "/storage/{$path}";
+        }
         $service = Service::find($id);
         $service->name = $request->input('name');
+        if ($request->hasFile('image')) {
+            $service->image = $image;
+        }
         $service->save();
 
         return redirect()->route('service.index')->with('success', 'Service updated successfully !');
