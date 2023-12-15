@@ -19,102 +19,24 @@
         </div>
         <div class="container">
             <div class="chocolate_container">
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/chocolate1.png" alt="">
+                @foreach ($servicesInfo as $service)
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="images/chocolate1.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                Yummy <span>chocolate {{ $service->name }}</span>
+                            </h6>
+                            <h5>
+                                $5.0
+                            </h5>
+                            <a href="">
+                                BUY NOW
+                            </a>
+                        </div>
                     </div>
-                    <div class="detail-box">
-                        <h6>
-                            Yummy <span>chocolate</span>
-                        </h6>
-                        <h5>
-                            $5.0
-                        </h5>
-                        <a href="">
-                            BUY NOW
-                        </a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/chocolate2.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h6>
-                            Yummy <span>chocolate</span>
-                        </h6>
-                        <h5>
-                            $5.0
-                        </h5>
-                        <a href="">
-                            BUY NOW
-                        </a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/chocolate3.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h6>
-                            Yummy <span>chocolate</span>
-                        </h6>
-                        <h5>
-                            $5.0
-                        </h5>
-                        <a href="">
-                            BUY NOW
-                        </a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/chocolate1.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h6>
-                            Yummy <span>chocolate</span>
-                        </h6>
-                        <h5>
-                            $5.0
-                        </h5>
-                        <a href="">
-                            BUY NOW
-                        </a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/chocolate2.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h6>
-                            Yummy <span>chocolate</span>
-                        </h6>
-                        <h5>
-                            $5.0
-                        </h5>
-                        <a href="">
-                            BUY NOW
-                        </a>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img-box">
-                        <img src="images/chocolate3.png" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h6>
-                            Yummy <span>chocolate</span>
-                        </h6>
-                        <h5>
-                            $5.0
-                        </h5>
-                        <a href="">
-                            BUY NOW
-                        </a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
