@@ -22,7 +22,7 @@
                 @foreach ($servicesInfo as $service)
                     <div class="box">
                         <div class="img-box">
-                            <img src="images/chocolate1.png" alt="">
+                            <img src="{{ asset($service->image) }}" alt="">
                         </div>
                         <div class="detail-box">
                             <h6>

@@ -25,7 +25,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="ticketForm" action="{{ route('service.update', $businessDetails->id) }}" method="post"
+                            <form id="ticketForm" action="{{ route('service.update', $servicesDetails->id) }}" method="post"
                                 enctype="multipart/form-data">
                                 @method('PUT')
                                 @csrf
@@ -34,11 +34,20 @@
                                         <label for="name">Service Name</label>
                                         <input type="text" name="name"
                                             class="form-control @error('name') is-invalid @enderror" id="name"
-                                            value="{{ old('name', $businessDetails->name) }}" placeholder="Enter Business Name">
+                                            value="{{ old('name', $servicesDetails->name) }}" placeholder="Enter Business Name">
                                         @error('name')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    <div class="form-group">
+                                        <label for="image">Image</label>
+                                        <input type="file" name="image" id="image"
+                                            class=" @error('image') is-invalid @enderror" >
+                                        @error('image')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <img src="{{ asset($servicesDetails->image) }}" alt="" srcset="" style="width:100px; height:100px;">
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">

@@ -37,12 +37,20 @@
                                             <div class="invalid-feedback"></div>
                                         @enderror
                                     </div>
+                                    <div class="form-group">
+                                        <label for="image">Image</label>
+                                        <input type="file" name="image" id="image"
+                                            class=" @error('image') is-invalid @enderror" >
+                                        @error('image')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Save</button>
                                     <a href="{{ route('service.index') }}"><input type="button" class="btn btn-primary"
-                                            value="Cancel"></input></a>
+                                            value="Cancel"></a>
                                 </div>
                             </form>
                         </div>
