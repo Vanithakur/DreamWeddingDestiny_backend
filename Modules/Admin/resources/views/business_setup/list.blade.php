@@ -40,6 +40,7 @@
                     <thead>
                         <tr>
                             <th>Business Name</th>
+                            <th>Service Name</th>
                             <th>Contact Number</th>
                             <th>Contact Email</th>
                             <th>Address</th>
@@ -80,9 +81,14 @@
                     ajax: {
                         url: Url,
                     },
-                    columns: [{
+                    columns: [
+                        {
                             data: 'name',
                             name: 'name'
+                        },
+                        {
+                            data: 'service_name',
+                            name: 'service_name'
                         },
                         {
                             data: 'mob_number',
@@ -103,7 +109,7 @@
                     ],
                     columnDefs: [
                             {
-                                "targets": 4,
+                                "targets": 5,
                                 "orderable": false
                             }
                         ]

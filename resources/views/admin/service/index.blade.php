@@ -1,3 +1,4 @@
+
 @extends('layouts.dashboard')
 
 @push('style')
@@ -28,10 +29,10 @@
 
         @if ($user->role_type == '0')
             <a href="{{ route('service.create') }}"><button class="btn btn-success mt-3 mb-3"> Add Service </button></a>
-        @endif
 
         <div class="card mt-3">
             <div class="card-header ">
+
                 <h3 class="card-title ">Service List</h3>
             </div>
             <!-- /.card-header -->

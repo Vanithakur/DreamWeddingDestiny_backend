@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Admin\app\Models\BusinessSetup;
 
 class Service extends Model
 {
@@ -17,5 +18,4 @@ class Service extends Model
     protected $fillable = [
         'name'
     ];
-
 }

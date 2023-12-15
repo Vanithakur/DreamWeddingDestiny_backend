@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
     Route::put('/update/{id}', [ServiceController::class, 'update'])->name('service.update');
     Route::delete('/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
+
 });
 
 Route::get('/home', [HomeController::class,'home'])->name('home');
