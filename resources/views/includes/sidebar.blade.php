@@ -4,7 +4,7 @@
 
   <!-- Brand Logo -->
   <a href="#" class="brand-link">
-    <span class="brand-text font-weight-light">Ticket Support System</span>
+    <span class="brand-text font-weight-light">Super Admin Module</span>
   </a>
 
   <!-- Sidebar -->
@@ -52,20 +52,17 @@
               </a>
             </li>
           </ul>
-          {{-- <ul class="nav nav-treeview">
+          <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ route('buisness.index') }}" class="nav-link">
+              <a href="{{ route('home') }}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Live Site</p>
               </a>
             </li>
-          </ul> --}}
+          </ul>
           </li>
           </ul>
         </nav>
-        <!-- /.sidebar-menu -->
-        <a href=""><button class="btn btn-primary">Select Plan</button></a>
-      </div>
 
       <!-- /.sidebar -->
 </aside>

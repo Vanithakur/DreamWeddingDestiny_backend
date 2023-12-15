@@ -4,6 +4,7 @@
 @section('header')
     @include('includes.header')
 @endsection
+
 @section('content')
     <!-- slider section -->
     <section class="slider_section ">

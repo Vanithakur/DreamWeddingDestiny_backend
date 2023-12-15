@@ -4,7 +4,7 @@
 
   <!-- Brand Logo -->
   <a href="#" class="brand-link">
-    <span class="brand-text font-weight-light">Ticket Support System</span>
+    <span class="brand-text font-weight-light">Buisness Module</span>
   </a>
 
   <!-- Sidebar -->
